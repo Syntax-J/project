@@ -1,18 +1,12 @@
 <template>
   <div>
-    login page
+    son son page
   </div>
 </template>
 
 <script>
 export default {
   name:'bottom'
-,
-created(){
-  console.log(this.$route);
-  console.log(this.$router);
-
-}
 }
 </script>
 

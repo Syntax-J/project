@@ -1,13 +1,32 @@
 <template>
-    <div>
-    <img src="../assets/logo.png"/>
-    <p>main page</p>
-    <router-view/>
-    <footer>foot</footer>
-    <button @click="signIn">SignIn</button>
+    <div class="wrap">
+      <header>
+        <ul class="main_tabs">
+          <li class="avatar"></li>
+          <ul class="mid_tabs">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+          <li></li>
+        </ul>
+      </header>
+      <nav>
+        <ul>
+          <li @click="homepage()">Home</li>
+          <li @click="sonpage()">Son1</li>
+          <li>lorem</li>
+          <li>lorem</li>
+        </ul>
+      </nav>
+      <div class="router">
+        <router-view/>
+      </div>
+      <footer>
+      </footer>
     </div>
 </template>
-
 <script>
 export default {
   data(){
@@ -16,44 +35,89 @@ export default {
     }
   },
   methods:{
-    signIn(a){
-      console.log(this.$router.push('/login'));
+homepage(){
+this.$router.push({path:'/home'})
+},
+    sonpage(){
+    this.$router.push({name:'son'})
     }
   }
 }
 </script>
 
 <style lang='scss' scoped>
-$fontsize:1.5rem;
-button{
-  background: yellowgreen;
-  border:none;
-  border: 0.1rem solid white;
-  border-radius: 1rem;
-  color:white;
-  font-size:$fontsize;
-  transition: all 0.5s;
-  &:hover{
-    border: 0.1rem solid yellowgreen;
-
-    background: white;
-    color:yellowgreen;
+*{
+  margin: 0;
+  padding:0;
+}
+header{
+  flex:0.1;
+  background: red;
+  width: 100%;
+  .main_tabs{
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    .avatar{
+      margin: 0.5rem;
+      border-radius: 50%;
+      padding: 1.5rem;
+    }
+    li{
+      display: inline-block;
+      background: blue;
+      padding: 1rem;
+    }
+    .mid_tabs{
+      display: flex;
+      width: 100%;
+      justify-content: space-around;
+      align-items: center;
+      li{
+        display: inline-block;
+        background: orange;
+        padding: 1rem
+      }
+    }
   }
 }
 footer{
-  display: flex;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    height:5rem;
-    left:0;
-    color:orange;
-    font-size: $fontsize;
-    background:yellowgreen;
-    justify-content: center;
-    align-items: center;
-  }
+  background: red;
+  flex:0.1;
+}
+nav {
+  flex:0.1;
+    top: 4.5rem;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    min-height: 2rem;
+    display: flex;
 
+    ul{
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    li{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      flex:0.25;
+      background: yellow;
+    }
+}
+.wrap{
+  height: 100%;
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+}
+.router{
+  flex:0.7;
+  background: purple;
+}
 </style>
