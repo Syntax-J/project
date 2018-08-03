@@ -52,7 +52,7 @@ this.$router.push({path:'/home'})
 }
 header{
   flex:0.1;
-  background: red;
+  background: #9354bc;
   width: 100%;
   .main_tabs{
     display: flex;
@@ -67,7 +67,7 @@ header{
     }
     li{
       display: inline-block;
-      background: orange;
+      background: white;
       padding: 1rem;
     }
     .mid_tabs{
@@ -77,14 +77,14 @@ header{
       align-items: center;
       li{
         display: inline-block;
-        background: orange;
+        background: white;
         padding: 1rem
       }
     }
   }
 }
 footer{
-  background: red;
+  background: #9354bc;
   flex:0.1;
 }
 nav {
@@ -103,7 +103,7 @@ nav {
       align-items: center;
       height: 100%;
       flex:0.25;
-      background: yellow;
+      background: #bcff05;
     }
 }
 .wrap{
@@ -116,6 +116,6 @@ nav {
 .router{
   flex:1;
   overflow:auto;
-  background: purple;
+  background: #08db98;
 }
 </style>

@@ -4,6 +4,7 @@
     <div class="avatar">
     </div>
     <p>item 1</p>
+    <button name="button">click</button>
   </div>
   <div class="content_block">
     <div class="avatar">
@@ -79,6 +80,13 @@ $border:1px;
   p{
     top: 65%;
     position: absolute;
+  }
+  button{
+    background: yellowgreen;
+    padding: 2.5% 7.5%;
+    border-radius: 15%/25%;
+    position: absolute;
+    top: 80%;
   }
 }
 </style>
