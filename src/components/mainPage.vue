@@ -61,12 +61,13 @@ header{
     align-items: center;
     .avatar{
       margin: 0.5rem;
+      margin-right: 0;
       border-radius: 50%;
       padding: 1.5rem;
     }
     li{
       display: inline-block;
-      background: blue;
+      background: orange;
       padding: 1rem;
     }
     .mid_tabs{
@@ -88,11 +89,6 @@ footer{
 }
 nav {
   flex:0.1;
-    top: 4.5rem;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    min-height: 2rem;
     display: flex;
 
     ul{
@@ -115,9 +111,11 @@ nav {
   display: flex;
   flex-direction:column;
   justify-content: center;
+
 }
 .router{
-  flex:0.7;
+  flex:1;
+  overflow:auto;
   background: purple;
 }
 </style>
