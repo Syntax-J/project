@@ -1,92 +1,102 @@
 <template>
   <div>
-  <div class="content_block">
-    <div class="avatar">
+   <p class='avatar-content'>
+    <img :src='avatar'/>
+    <span>我的账号</span>
+   </p>
+   <p>
+   <div class='user-details'>
+    <div class='avatar-wrapper'>
+     <div class='avatar'>
+     <img :src='avatar2'/>
+     </div>
+      <span>loram</span>
     </div>
-    <p>item 1</p>
-    <button name="button">click</button>
-  </div>
-  <div class="content_block">
-    <div class="avatar">
-    </div>
-    <p>item 2</p>
-  </div>
-  <div class="content_block">
-    <div class="avatar">
-    </div>
-    <p>item 3</p></div>
-  <div class="content_block">
-    <div class="avatar">
-    </div>
-    <p>item 4</p>
-  </div>
-  <div class="content_block">
-    <div class="avatar">
-    </div>
-    <p>item 5</p></div>
-  <div class="content_block">
-    <div class="avatar">
-    </div>
-    <p>item 6</p></div>
-  <div class="content_block">
-    <div class="avatar">
-    </div>
-    <p>item 7</p></div>
-  <div class="content_block"></div>
-  <div class="content_block"></div>
-  <div class="content_block"></div>
-  <div class="content_block"></div>
-  <div class="content_block"></div>
-  <div class="content_block"></div>
-  <div class="content_block"></div>
-  <div class="content_block"></div>
-
+    
+   </div>
+   </p>
+   <div class=banner-content>
+    <div class='banner'>banner</div>
+    <div class='banner'>banner</div>
+   </div>
+  <p class='avatar-content'>
+    <img :src='avatar'/>
+    <span>我的关注</span>
+   </p>
   </div>
 </template>
 
 <script>
 export default {
-  name:'me'
+  name:'me',
+  data(){
+    return{
+      avatar:'../static/footer/logo.png',
+      avatar2:'../static/footer/avatar.png',
+    }
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang='scss' scoped>
-p{
-  text-align: center;
-  color:white;
-}
-div{
-  display: flex;
-  flex-wrap: wrap
-}
-$border:1px;
-.content_block{
-  position: relative;
-  box-sizing: border-box;
-  width: 50%;
-  padding: calc(25% - (#{$border})) 12.5%;
-  border:$border solid white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .avatar{
-    position: absolute;
-    top: 5%;
-    padding: 25%;
-    border-radius: 50%;
-    background: white;
+.avatar-content{
+   padding-bottom:0px;
+  background:#DDDDDD;
+  img{
+    height:14px;
+    width:14px;
+    margin:12px 0 0 12px;
   }
-  p{
-    top: 65%;
-    position: absolute;
-  }
-  button{
-    background: yellowgreen;
-    padding: 2.5% 7.5%;
-    border-radius: 15%/25%;
-    position: absolute;
-    top: 80%;
+  span{
+    font-size:14px;
   }
 }
+.user-details{
+  margin:10px 0 5px 0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+  width:100%;
+  height:35px;
+
+  .avatar-wrapper{
+    width:90%;
+    height:100%;
+    .avatar{
+  height:35px;
+  width:35px;
+  border-radius:50%;
+  overflow:hidden;
+  img{
+    width:100%;
+    height:100%;
+  }
+  }
+  }
+  span{
+    position:absolute;
+    left:60px;
+    top:11.5px;
+    font-size:12px;
+  }
+}
+.banner-content{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+  align-items:center;
+  .banner{
+    color:white;
+    line-height:100px;
+    text-align:center;
+    height:100px;
+    width:90%;
+    background:black;
+    border-radius:10px;
+    margin:7px 0 7px 0;
+  }
+}
+
 </style>

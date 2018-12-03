@@ -40,27 +40,28 @@ export default {
         {
           iconUrl:'../static/footer/logo.png',
           iconUrlActive:'../static/footer/logo_active.png',
-          infoText:'赛事'
+          infoText:'赛事',
+          routerPath:'race'
         },
         {
           iconUrl:'../static/footer/logo.png',
           iconUrlActive:'../static/footer/logo_active.png',
-          infoText:'发现'
+          infoText:'发现',
+          routerPath:'explore'
         },
         {
           iconUrl:'../static/footer/logo.png',
           iconUrlActive:'../static/footer/logo_active.png',
-          infoText:'直播'
+          infoText:'直播',
+          routerPath:'stream'
         },
       ]
     }
   },
   methods:{
     routerHandler(index,path){
-     
         this.num=index;
         this.$router.push({path:path})
-         console.log(this.num)
       },
   }
 }
