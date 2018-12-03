@@ -1,6 +1,5 @@
 <template>
-  <footer>asdadasdad
-  </footer>
+  <footer></footer>
 </template>
 
 <script>
@@ -17,7 +16,7 @@ footer{
   width: 100%;
   position: fixed;
   bottom: 0;
-  height:5rem;
+  height:1rem;
   left:0;
   background:red;
 }

@@ -16,11 +16,10 @@ export default {
 }
 html,body{
   width:100%;
-  	height:100%
+  height:100%
 }
 #app {
   overflow: scroll;
-
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
