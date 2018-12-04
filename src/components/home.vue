@@ -8,10 +8,10 @@
       </div>
       <footer>
         <ul>
-          <li v-for="(item, index) in footerBar" :key="index" @click='routerHandler(index,item.routerPath)'>
-          <img v-if='index==num' v-bind:src='item.iconUrlActive'/>
+          <li v-for="(item, index) in footerBar" :key="index" @click='routerHandler(item.routerPath)'>
+          <img v-if='item.routerPath==$route.name' v-bind:src='item.iconUrlActive'/>
           <img v-else v-bind:src='item.iconUrl'/>
-          <p v-bind:class="{ active: index==num }">{{item.infoText}}</p>
+          <p v-bind:class="{ active: item.routerPath==$route.name }">{{item.infoText}}</p>
           </li>
         </ul>
       </footer>
@@ -59,8 +59,7 @@ export default {
     }
   },
   methods:{
-    routerHandler(index,path){
-        this.num=index;
+    routerHandler(path){
         this.$router.push({path:path})
       },
   }
@@ -121,6 +120,6 @@ footer{
   flex:1;
   overflow:auto;
   background: #FFFFFF;
-  border-bottom:1px solid #c3baba;
+  border-bottom:1px solid #f3f3f3;
 }
 </style>

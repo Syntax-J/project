@@ -7,23 +7,43 @@
    <p>
    <div class='user-details'>
     <div class='avatar-wrapper'>
-     <div class='avatar'>
-     <img :src='avatar2'/>
-     </div>
-      <span>loram</span>
-    </div>
-    
+     <div class='avatar'><img :src='avatar2'/></div>
+     <span>loram</span>
+     <span class='identify'>已认证</span>
+     <span class='race-details'>战绩详情 ></span>
+    </div>    
    </div>
    </p>
    <div class=banner-content>
     <div class='banner'>banner</div>
-    <div class='banner'>banner</div>
+    <div class='missions'>
+      <div class='mission-details'>
+        <div class='avatar'><img :src='avatar2'/></div>
+        <span class='mission-title'>我的任务</span>
+        <span class='mission-info'>3个任务未完成</span>
+        <span class='mission-arrow'>></span>
+      </div>
+      <div class='mission-details'>
+        <div class='avatar'><img :src='avatar2'/></div>
+        <span class='mission-title'>专题活动</span>
+        <span class='mission-arrow'>></span>
+      </div>
+    </div>
    </div>
   <p class='avatar-content'>
     <img :src='avatar'/>
     <span>我的关注</span>
    </p>
-  </div>
+   <div>
+    <div v-for="(item, index) in players" :key="index" class='players-contents'>
+     <div class='avatar'><img :src='item.avatarUrl'/></div>
+     <span class='players-name'>{{item.playersName}}</span>
+     <span class='game-status' v-bind:class="{ lost: item.status=='失败' }">{{item.status}}</span>
+     <span class='game-level' :class="classObject(item)">{{item.level}}</span>
+     <span class='game-data'>{{item.kills}}/{{item.assist}}/{{item.death}}</span>
+    </div>
+   </div>
+</div>
 </template>
 
 <script>
@@ -33,20 +53,120 @@ export default {
     return{
       avatar:'../static/footer/logo.png',
       avatar2:'../static/footer/avatar.png',
+      players:[
+        {
+          playersName:'loram',
+          status:'失败',
+          time:'14小时前',
+          level:'VeryHigh',
+          kills:10,
+          assist:5,
+          death:3,
+          avatarUrl:'../static/footer/logo.png',
+          heroImageUrl:'../static/footer/logo.png',
+        },
+        {
+          playersName:'loram2',
+          status:'胜利',
+          time:'14小时前',
+          level:'Normal',
+          kills:10,
+          assist:5,
+          death:3,
+          avatarUrl:'../static/footer/logo.png',
+          heroImageUrl:'../static/footer/logo.png',
+        },
+        {
+          playersName:'loram3',
+          status:'胜利',
+          time:'14小时前',
+          level:'High',
+          kills:10,
+          assist:5,
+          death:3,
+          avatarUrl:'../static/footer/logo.png',
+          heroImageUrl:'../static/footer/logo.png',
+        },
+        {
+          playersName:'loram3',
+          status:'失败',
+          time:'14小时前',
+          level:'VeryHigh',
+          kills:10,
+          assist:5,
+          death:3,
+          avatarUrl:'../static/footer/logo.png',
+          heroImageUrl:'../static/footer/logo.png',
+        },
+        {
+          playersName:'loram3',
+          status:'胜利',
+          time:'14小时前',
+          level:'VeryHigh',
+          kills:10,
+          assist:5,
+          death:3,
+          avatarUrl:'../static/footer/logo.png',
+          heroImageUrl:'../static/footer/logo.png',
+        },
+        {
+          playersName:'loram3',
+          status:'胜利',
+          time:'14小时前',
+          level:'VeryHigh',
+          kills:10,
+          assist:5,
+          death:3,
+          avatarUrl:'../static/footer/logo.png',
+          heroImageUrl:'../static/footer/logo.png',
+        },
+        {
+          playersName:'loram3',
+          status:'胜利',
+          time:'14小时前',
+          level:'VeryHigh',
+          kills:10,
+          assist:5,
+          death:3,
+          avatarUrl:'../static/footer/logo.png',
+          heroImageUrl:'../static/footer/logo.png',
+        },
+        {
+          playersName:'loram3',
+          status:'胜利',
+          time:'14小时前',
+          level:'VeryHigh',
+          kills:10,
+          assist:5,
+          death:3,
+          avatarUrl:'../static/footer/logo.png',
+          heroImageUrl:'../static/footer/logo.png',
+        }
+      ]
     }
-  }
-}
+  },
+  methods: {  //v-for 绑 class obj 大法
+        classObject(item) {
+            let obj = {};
+            if (item.level=='VeryHigh')  obj['very-high']=true;
+            if (item.level=='Normal')  obj['normal']=true;
+            return obj
+            },
+        }
+      }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang='scss' scoped>
 .avatar-content{
-   padding-bottom:0px;
-  background:#DDDDDD;
+  height:30px;
+  line-height:30px;
+  padding-bottom:0px;
+  background:#f3f3f3;
   img{
     height:14px;
     width:14px;
-    margin:12px 0 0 12px;
+    margin-left:7px;
   }
   span{
     font-size:14px;
@@ -62,24 +182,41 @@ export default {
   height:35px;
 
   .avatar-wrapper{
+    display:flex;
+    align-items:center;
     width:90%;
     height:100%;
+    position:relative;
     .avatar{
-  height:35px;
-  width:35px;
-  border-radius:50%;
-  overflow:hidden;
-  img{
-    width:100%;
-    height:100%;
-  }
-  }
-  }
-  span{
-    position:absolute;
-    left:60px;
-    top:11.5px;
-    font-size:12px;
+     display:inline-block;
+     height:30px;
+     width:30px;
+     border-radius:50%;
+     overflow:hidden;
+      img{
+        width:100%;
+        height:100%;
+      }
+    }
+    span{
+      margin-left:10px;
+      font-size:12px;
+    }
+    .identify{
+      display:inline-block;
+      background:#00a1ff;
+      height:15px;
+      border-radius:5px;
+      padding:2px 10px 2px 10px;
+      font-size:10px;
+      color:white;
+    }
+    .race-details{
+      position:absolute;
+      right:0;
+      margin-left:0px;
+      margin-right:10px;
+    }
   }
 }
 .banner-content{
@@ -97,6 +234,103 @@ export default {
     border-radius:10px;
     margin:7px 0 7px 0;
   }
+  .missions{
+    display:flex;
+    align-items:center;
+    height:40px;
+    width:90%;
+    background:#f3f3f3;
+    border-left:1px solid #f3f3f3;
+    .mission-details{
+      position:relative;
+      flex:0.5;
+      height:38px;
+      background:#FFFFFF;
+      margin:0 1px 0 0px;
+      .avatar{
+        position:absolute;
+        left:7px;
+        top:5px;
+        height:30px;
+        width:30px;
+        border-radius:50%;
+        overflow:hidden;
+        img{
+          height:100%;
+          width:100%;
+        }
+      }
+      .mission-title{
+        font-size:14px;
+        position:absolute;
+        left:44px;
+        top:5px;
+      }
+      .mission-info{
+        color:#a2a2a2;
+        font-size:10px;
+        position:absolute;
+        left:44px;
+        top:20px;
+      }
+      .mission-arrow{
+        float:right;
+        line-height:40px;
+      }
+    }
+  }
 }
-
+.players-contents{
+  border-bottom:1px solid #f3f3f3;
+  height:50px;
+  width:100%;
+  position:relative;
+  .avatar{
+        position:absolute;
+        left:7px;
+        top:10px;
+        height:30px;
+        width:30px;
+        border-radius:50%;
+        overflow:hidden;
+        img{
+          height:100%;
+          width:100%;
+        }
+      }
+      .players-name{
+         position:absolute;
+         left:45px;
+         top:10px;
+         font-size:12px;
+      }
+      .game-status{
+         position:absolute;
+         left:45px;
+         top:30px;
+         font-size:12px;
+         color:green;
+      }
+      .game-level{
+         position:absolute;
+         right:45px;
+         top:10px;
+         font-size:12px;
+      }
+      .game-data{
+         position:absolute;
+         right:45px;
+         top:30px;
+         font-size:12px;
+      }
+}
+.lost{
+        color:red !important;
+     }
+.very-high{
+  color:orange !important;
+}
+.normal{
+  color:#a2a2a2 !important;
+}
 </style>
