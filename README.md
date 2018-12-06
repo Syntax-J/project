@@ -1,4 +1,4 @@
-#dotamax仿制
+# dotamax仿制
 >vue-cli 构建项目
 >vuex 组件间通信
 >vue-router 页面导航
