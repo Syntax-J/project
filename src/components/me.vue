@@ -39,8 +39,9 @@
      <div class='avatar'><img :src='item.avatarUrl'/></div>
      <span class='players-name'>{{item.playersName}}</span>
      <span class='game-status' v-bind:class="{ lost: item.status=='失败' }">{{item.status}}</span>
-     <span class='game-level' :class="classObject(item)">{{item.level}}</span>
+     <span class='game-level' :class="classObject(item.level)">{{item.level}}</span>
      <span class='game-data'>{{item.kills}}/{{item.assist}}/{{item.death}}</span>
+     <span class='game-time'>{{item.time}}</span>
     </div>
    </div>
 </div>
@@ -145,11 +146,11 @@ export default {
       ]
     }
   },
-  methods: {  //v-for 绑 class obj 大法
-        classObject(item) {
+  methods: {  //v-for 绑 class obj 大法 
+        classObject(level) {
             let obj = {};
-            if (item.level=='VeryHigh')  obj['very-high']=true;
-            if (item.level=='Normal')  obj['normal']=true;
+            if (level=='VeryHigh')  obj['very-high']=true;
+            if (level=='Normal')  obj['normal']=true;
             return obj
             },
         }
@@ -323,14 +324,21 @@ export default {
          top:30px;
          font-size:12px;
       }
+      .game-time{
+         position:absolute;
+         left:80px;
+         top:30px;
+         font-size:12px;
+         color:#a2a2a2;
+      }
 }
 .lost{
-        color:red !important;
-     }
+  color:red !important;
+  }
 .very-high{
   color:orange !important;
-}
+  }
 .normal{
   color:#a2a2a2 !important;
-}
+  }
 </style>
