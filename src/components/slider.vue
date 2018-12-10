@@ -8,7 +8,9 @@
 export default {
   methods:{
     change(){
-      this.$store.commit('toggle')
+      this.$store.commit('SLIDER_BAR_TOGGLE')
+      this.$store.commit('moduleA/increment')
+      this.$store.dispatch('moduleA/add')
     }
   },
   name:'appSlider'

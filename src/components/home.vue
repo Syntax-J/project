@@ -11,22 +11,23 @@
     </div>
 </template>
 <script>
+import { mapState } from 'vuex'
 import appHeader from '@/components/header'
 import appFooter from '@/components/footer'
 import appSlider from '@/components/slider'
 export default {
-  created() {
-    console.log(this.$store)
-  },
   data(){
     return{
       show: false,
     }
   },
   computed: {
-    toggle () {
-      return this.$store.state.show
-    }
+    ...mapState({
+        toggle :  'toggle'
+    })
+    //  toggle () {
+    //   return this.$store.state.toggle
+    //  }
   },
    components: {
     appHeader,
@@ -55,7 +56,7 @@ export default {
   border-bottom:1px solid #f3f3f3;
 }
 .fade-enter-active, .fade-leave-active {
-  transition: opacity .5s ,transform 0.5s;
+  transition: opacity .5s ease-in-out ,transform 0.5s ease-in-out;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
